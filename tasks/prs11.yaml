@@ -1,0 +1,41 @@
+# Case A — urban visual restorative quality (ART / PRS-11), single-scene.
+# Reference implementation of the framework claim: the same pipeline that runs the six-dimension
+# perception task and the renewal task runs this one — only this file differs.
+id: restorative_quality_prs11
+version: "1.1"
+description: >
+  Attention-Restoration-Theory-aligned visual restorative quality of one streetscape.
+  Four PRS-11 dimensions scored 0-1; their mean is the overall screening value.
+  Validation reference (optional): human PRS-11 ratings for the same captures.
+input_signature: single_scene
+prompt:
+  # Pinned sampling parameter. Many newer OpenAI reasoning-style models reject custom
+  # temperature values; leave null to omit the parameter from the API call entirely.
+  temperature: null
+  template: prompts/prs11.txt
+output_fields:
+  being_away: score
+  coherence: score
+  scope: score
+  fascination: score
+derived_fields:
+  restorative_average:
+    func: mean
+    fields: [being_away, coherence, scope, fascination]
+validation:
+  reference_type: human_prs11_ratings
+  # Set reference to a CSV (columns: capture_id, Being-away, Coherence, Scope, Fascination,
+  # Average) to enable validation; null keeps the run marked not_validated.
+  reference: null
+  mapping:
+    vlm_being_away: Being-away
+    vlm_coherence: Coherence
+    vlm_scope: Scope
+    vlm_fascination: Fascination
+    vlm_restorative_average: Average
+spatial:
+  value_field: vlm_restorative_average
+  screening: lisa_low_low
+  k: 8
+  p_threshold: 0.05
+  p_adjust: fdr_bh

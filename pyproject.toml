@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyrestore"
+version = "0.2.1"
+description = "Python toolbox for urban restorative quality assessment from street-view imagery, combining CV physical measurements and VLM perception-based scores into validated, GIS-ready datasets."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Jiale Guo" }]
+license = "MIT"
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "geopandas>=0.14",
+    "pyogrio>=0.7",
+    "shapely>=2.0",
+    "folium>=0.15",
+    "branca>=0.7",
+    "libpysal>=4.9",
+    "esda>=2.5",
+    "matplotlib>=3.7",
+    "openai>=1.0",
+    "pyyaml>=6.0",
+    "pillow>=10.0",
+    "python-dotenv>=1.0",
+    "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel>=6.0",
+    "nbclient>=0.10",
+    "nbformat>=5.10",
+    "pytest>=7.4",
+    "pytest-cov>=5.0",
+    "ruff>=0.4",
+]
+# Optional: live CV extractor (SegFormer on Cityscapes) + colour/edge stats.
+cv = ["torch>=2.0", "torchvision>=0.15", "transformers>=4.40", "opencv-python-headless>=4.9"]
+
+[tool.setuptools.packages.find]
+include = ["pyrestore*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["--import-mode=importlib"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.coverage.run]
+source = ["pyrestore"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 75

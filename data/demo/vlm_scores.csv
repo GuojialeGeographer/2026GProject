@@ -1,0 +1,13 @@
+capture_id,vlm_model,prompt_hash,cache_hit,vlm_being_away,vlm_coherence,vlm_scope,vlm_fascination,vlm_restorative_average,vlm_status,vlm_error
+bcn-0029,gpt-5.4-mini,35128c8cfbadece8,True,0.14,0.68,0.46,0.47,0.4375,ok,
+bcn-0039,gpt-5.4-mini,35128c8cfbadece8,False,0.18,0.62,0.46,0.33,0.3975,ok,
+bcn-0084,gpt-5.4-mini,35128c8cfbadece8,False,0.05,0.72,0.31,0.38,0.365,ok,
+bcn-0131,gpt-5.4-mini,35128c8cfbadece8,False,0.18,0.72,0.41,0.36,0.4175,ok,
+bcn-0144,gpt-5.4-mini,35128c8cfbadece8,False,0.08,0.72,0.38,0.22,0.35,ok,
+bcn-0159,gpt-5.4-mini,35128c8cfbadece8,False,0.22,0.74,0.56,0.33,0.4625,ok,
+bcn-0230,gpt-5.4-mini,35128c8cfbadece8,False,0.06,0.52,0.31,0.28,0.2925,ok,
+bcn-0243,gpt-5.4-mini,35128c8cfbadece8,False,0.12,0.78,0.34,0.28,0.38,ok,
+bcn-0251,gpt-5.4-mini,35128c8cfbadece8,False,0.18,0.74,0.52,0.32,0.44,ok,
+bcn-0273,gpt-5.4-mini,35128c8cfbadece8,False,0.08,0.58,0.31,0.34,0.3275,ok,
+bcn-0329,gpt-5.4-mini,35128c8cfbadece8,False,0.08,0.72,0.46,0.31,0.3925,ok,
+bcn-0376,gpt-5.4-mini,35128c8cfbadece8,False,0.12,0.68,0.42,0.38,0.4,ok,

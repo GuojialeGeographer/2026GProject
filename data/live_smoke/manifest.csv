@@ -1,0 +1,3 @@
+image,image_path,lon,lat,source_fid,city
+bcn-0029,../demo/images/barcelona_0029.jpg,2.163502929,41.39625621,29,Barcelona
+bcn-0039,../demo/images/barcelona_0039.jpg,2.168928828,41.39650426,39,Barcelona

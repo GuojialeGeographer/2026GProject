@@ -1,0 +1,9 @@
+site_id,capture_id,image_path,lon,lat,captured_at,heading
+site0,site0_2017,site0_2017.png,2.2,41.41,2017-06,45
+site0,site0_2022,site0_2022.png,2.2,41.41,2022-06,45
+site1,site1_2017,site1_2017.png,2.21,41.418,2017-06,45
+site1,site1_2022,site1_2022.png,2.21,41.418,2022-06,45
+site2,site2_2017,site2_2017.png,2.22,41.425999999999995,2017-06,45
+site2,site2_2022,site2_2022.png,2.22,41.425999999999995,2022-06,45
+site3,site3_2017,site3_2017.png,2.23,41.434,2017-06,45
+site3,site3_2022,site3_2022.png,2.23,41.434,2022-06,45

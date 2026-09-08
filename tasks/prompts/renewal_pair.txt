@@ -1,0 +1,38 @@
+You are an urban-renewal auditor comparing two street-view images of the SAME location.
+IMAGE 1 is the earlier baseline capture; IMAGE 2 is the later follow-up capture.
+
+Task: decide whether a SUBSTANTIVE urban renewal occurred between the two captures.
+Urban renewal means a deliberate physical intervention that changes the street environment
+beyond routine upkeep, for example: new or renovated buildings; renewed facades or facade
+materials; new greenery or landscape works; changes to roads, pavements or traffic
+infrastructure; new public facilities or street furniture; changes to the spatial interface
+(walls, fences, gates, openings); or new commercial signage.
+
+Exclude these three high-frequency false positives — they are NOT renewal:
+1. Natural evolution: seasonal foliage change, weather, daylight, shadows, wet ground.
+2. Temporary use: construction hoarding for unrelated works, parked or moving vehicles,
+   roadworks, market stalls, pedestrians, or other transient objects and activity.
+3. Routine maintenance: repainting in the same colours, cleaning, minor repairs, or
+   like-for-like replacement that does not change the design.
+
+If renewal occurred, classify it into one or more NON-OVERLAPPING taxonomy types
+(multi-label selection is allowed):
+- greening_landscape
+- road_traffic
+- building_facade_material
+- public_facility_street_furniture
+- spatial_interface
+- commercial_signage
+- other
+
+Also list any nuisance differences you observed (season, illumination, occlusion, temporary
+activity, viewpoint), cite concise visible evidence from both images for your decision, and
+give a confidence between 0 and 1. If the two images are not comparable (clearly different
+viewpoint or a different location), answer "uncertain" and explain in the evidence field.
+
+Respond with ONLY a JSON object and nothing else:
+{"renewal_detected": "yes" | "no" | "uncertain",
+ "renewal_types": ["<type>", ...],
+ "nuisance": ["<nuisance>", ...],
+ "confidence": <float between 0 and 1>,
+ "evidence": "<concise visible before/after evidence>"}

@@ -1,0 +1,37 @@
+# Case A' — six-dimension perception audit (the "add a task without touching code" demonstration).
+# Same pipeline, same manifest, a different task definition. Human labels for these six
+# Place-Pulse-style dimensions ship with the Shenzhen PRS-11 dataset (ground_truth.csv), so the
+# task is also directly validatable.
+id: urban_perception_sixdim
+version: "1.1"
+description: >
+  Place-Pulse-style six-dimension perception audit of one streetscape
+  (safe, lively, beautiful, wealthy, boring, depressing). Demonstrates that adding a task
+  means adding a definition file, not editing framework code.
+input_signature: single_scene
+prompt:
+  temperature: null
+  template: prompts/sixdim.txt
+output_fields:
+  safe: score
+  lively: score
+  beautiful: score
+  wealthy: score
+  boring: score
+  depressing: score
+validation:
+  reference_type: human_six_dimension_ratings
+  reference: null
+  mapping:
+    vlm_safe: safe
+    vlm_lively: lively
+    vlm_beautiful: beautiful
+    vlm_wealthy: wealthy
+    vlm_boring: boring
+    vlm_depressing: depressing
+spatial:
+  value_field: vlm_beautiful
+  screening: lisa_low_low
+  k: 8
+  p_threshold: 0.05
+  p_adjust: fdr_bh

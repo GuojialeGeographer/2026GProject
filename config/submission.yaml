@@ -1,0 +1,22 @@
+vlm:
+  # Author-selected model for subsequent experiments. Historical scores retain their source model.
+  model: gpt-5.4-mini
+  provider_id: gisphere-newapi
+  max_image_px: 1024
+  jpeg_quality: 85
+  max_completion_tokens: 800
+  max_retries: 2
+  offline: false
+  allow_remote_images: true
+  content_addressed_cache: true
+  cache_db: cache/submission_vlm.sqlite
+
+cv:
+  segmenter: nvidia/segformer-b0-finetuned-cityscapes-1024-1024
+
+output:
+  dir: outputs/submission
+
+provenance:
+  data_status: real Shenzhen street-view images with normalized human six-dimension reference
+  run_note: 465 of 566 complete reference records matched to the local image export at five coordinate decimals

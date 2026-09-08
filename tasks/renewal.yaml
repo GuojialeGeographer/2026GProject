@@ -1,0 +1,54 @@
+# Case B — paired-scene urban-renewal detection with nuisance accounting.
+# Prompt design follows the expert-knowledge-guided scheme of Bai et al. (Applied Geography,
+# accepted): renewal definition injection, explicit negative-sample rules for the three
+# high-frequency false positives, and mutually exclusive renewal types.
+#
+# DATA STATUS: no before/after panel ships with this repository. Build pairs with
+# `pyrestore.make_pairs` from a manifest that carries captured_at, following docs/CASE_B_PROTOCOL.md.
+id: urban_renewal_pair
+version: "0.2"
+description: >
+  Substantive urban-renewal detection between two comparable captures of the same site.
+  The VLM judges renewal (yes/no/uncertain) with types, nuisance notes, evidence and
+  confidence; CV channel deltas (GVI/SVF/enclosure) are attached as physical-change context.
+input_signature: paired_scene
+prompt:
+  temperature: null
+  template: prompts/renewal_pair.txt
+output_fields:
+  renewal_detected:
+    type: category
+    # Quoted: bare yes/no would be parsed as YAML booleans.
+    options: ["yes", "no", "uncertain"]
+  renewal_types:
+    type: list
+    items:
+      type: category
+      options:
+        - greening_landscape
+        - road_traffic
+        - building_facade_material
+        - public_facility_street_furniture
+        - spatial_interface
+        - commercial_signage
+        - other
+    unique_items: true
+  nuisance: list
+  confidence: score
+  evidence: string
+pair_contract:
+  max_distance_m: 20
+  max_heading_diff_deg: 30
+  require_captured_at: true
+cv_change:
+  # Physical-change context attached by harmonisation (after - before).
+  delta_columns: [GVI, SVF, enclosure]
+validation:
+  # reference CSV columns: pair_id, renewal_label (values matching positive_value/abstains)
+  reference: null
+  label_column: renewal_label
+  prediction_column: vlm_renewal_detected
+  positive_value: "yes"
+  negative_values: ["no"]
+  abstain_values: ["uncertain"]
+  reference_type: human_pair_labels

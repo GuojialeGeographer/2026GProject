@@ -1,0 +1,68 @@
+# Environments and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Credentials — never commit
+.env
+.env.bak*
+
+# Run products (regenerable with `pyrestore.run_task` or the notebooks)
+outputs/
+cache/*.sqlite
+
+# Logs and OS noise
+pip.log
+install.log
+.DS_Store
+
+# Local Jupyter kernel registration is machine-specific (absolute interpreter path); the
+# project's own kernel is registered at user level instead (see docs/USER_MANUAL.md).
+.jupyter/
+
+# Slide-build tooling: the two .mjs scripts require a proprietary runtime not available to
+# anyone else who clones this repository, so the whole directory is kept local only rather
+# than shipped as inert, unrunnable "source".
+.slides-build/
+
+# Submission packaging (Report/User-Manual DOCX, Presentation PPTX, and the diagrams/figures/
+# QGIS exports feeding them) is regenerable output for WeBeep, not project source — same
+# category as build/ or dist/. It stays local; only the source that generates it (scripts/,
+# data/, tasks/, pyrestore/) belongs in the repository.
+submission/
+
+# Internal working notes: course-compliance tracking, submission logistics, editorial QA
+# ledgers and Chinese-language drafts/planning documents. These record process, not the
+# reproducible project, and are kept local only.
+PLAN.md
+docs/COURSE_REQUIREMENTS_AUDIT.md
+docs/METRIC_REVIEW_*.md
+docs/MATERIALS_INDEX_CN.md
+docs/PRESENTATION_SCRIPT_CN_EN.md
+docs/PROJECT_EXPLANATION_CN.md
+docs/PYRESTORE_COMPARISON_CN.md
+docs/REPORT_OUTLINE.md
+docs/SLIDES.md
+docs/SUBMISSION_CHECKLIST.md
+docs/SUBMISSION_INPUTS_NEEDED_CN.md
+docs/FIGURES_AND_DATA.md
+docs/PPT_PRODUCTION_SPEC_CN.md
+docs/PRE_SUBMISSION_REVIEW.md
+docs/REPORT_DRAFT.md
+docs/REPORT_DRAFT_CN.md
+docs/REPORT_FRAMEWORK_CN.md
+
+# Report/presentation-generation tooling: reads the (locally kept) report source above and
+# assembles the WeBeep submission documents. Not part of the reproducible analysis pipeline.
+scripts/build_course_compliant_report.py
+scripts/build_submission_documents.py
+scripts/build_en_report_pdf.py
+scripts/build_cn_report_pdf.py

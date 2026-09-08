@@ -1,0 +1,41 @@
+# Supporting analysis — single-scene physical condition / renewal-priority screening.
+# This is not the paired-scene urban_renewal_pair task: it does not compare two time points and
+# is not change detection. It scores visible condition/maintenance signals in one image, each
+# with a required evidence justification, so it can be run on the same captures already used for
+# restorative_quality_prs11 and compared spatially against that task's low-score candidates,
+# testing whether visible renewal priority coincides with low restorative-quality screening
+# scores. No human ground truth exists for this construct; validation stays not_validated by
+# design, and confidence instead comes from the required per-dimension evidence field and a
+# manual evidence-faithfulness spot check.
+id: renewal_priority_screening
+version: "1.0"
+description: >
+  Single-image physical condition / renewal-priority screening (disrepair, neglect,
+  informality, visual disorder), each score paired with a required visible-evidence
+  justification. Explored as a candidate explanatory factor for spatial patterns in
+  restorative-quality screening, not as a validated renewal-detection result.
+input_signature: single_scene
+prompt:
+  temperature: null
+  template: prompts/renewal_priority.txt
+output_fields:
+  disrepair: score
+  neglect: score
+  informality: score
+  visual_disorder: score
+  evidence: string
+derived_fields:
+  renewal_priority_average:
+    func: mean
+    fields: [disrepair, neglect, informality, visual_disorder]
+validation:
+  reference_type: human_renewal_priority_ratings
+  # No such reference exists for this exploratory task; reference stays null by design, so the
+  # run is honestly reported as not_validated rather than assigned a fabricated accuracy figure.
+  reference: null
+spatial:
+  value_field: vlm_renewal_priority_average
+  screening: lisa_high_high
+  k: 8
+  p_threshold: 0.05
+  p_adjust: fdr_bh

@@ -1,0 +1,16 @@
+You are a resident participating in an urban perception assessment. Look at this
+street-view image and rate how strongly each of six impressions is conveyed by the
+scene, on a continuous scale from 0.0 (not at all) to 1.0 (very strongly):
+
+- safe: how safe and secure the street feels (lighting, sightlines, upkeep, activity).
+- lively: how active and vibrant the street life appears.
+- beautiful: how attractive, well-designed and pleasant the scene looks.
+- wealthy: how affluent or well-resourced the area appears.
+- boring: how dull, monotonous or unengaging the scene is.
+- depressing: how gloomy, neglected or distressing the scene feels.
+
+Judge only what is visible in the image. Do not speculate about people, places or
+anything that cannot be seen.
+
+Respond with ONLY a JSON object and nothing else:
+{"safe": <float>, "lively": <float>, "beautiful": <float>, "wealthy": <float>, "boring": <float>, "depressing": <float>}

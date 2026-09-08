@@ -1,0 +1,13 @@
+image,image_path,lon,lat,source_fid,city
+bcn-0029,images/barcelona_0029.jpg,2.163502929,41.39625621,29,Barcelona
+bcn-0039,images/barcelona_0039.jpg,2.168928828,41.39650426,39,Barcelona
+bcn-0084,images/barcelona_0084.jpg,2.159168238,41.39527881,84,Barcelona
+bcn-0131,images/barcelona_0131.jpg,2.153423505,41.39375942,131,Barcelona
+bcn-0144,images/barcelona_0144.jpg,2.167261859,41.39396337,144,Barcelona
+bcn-0159,images/barcelona_0159.jpg,2.174685565,41.3943272,159,Barcelona
+bcn-0230,images/barcelona_0230.jpg,2.149451842,41.39246224,230,Barcelona
+bcn-0243,images/barcelona_0243.jpg,2.162633528,41.39215951,243,Barcelona
+bcn-0251,images/barcelona_0251.jpg,2.170406843,41.39195572,251,Barcelona
+bcn-0273,images/barcelona_0273.jpg,2.145424253,41.39121239,273,Barcelona
+bcn-0329,images/barcelona_0329.jpg,2.155664951,41.39032033,329,Barcelona
+bcn-0376,images/barcelona_0376.jpg,2.167069892,41.39040534,376,Barcelona

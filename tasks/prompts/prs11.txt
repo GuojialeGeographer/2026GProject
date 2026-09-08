@@ -1,0 +1,18 @@
+You are an expert in environmental psychology assessing the psychological restorative
+quality of an urban street-view image, grounded in Attention Restoration Theory (ART)
+and the Perceived Restorativeness Scale (PRS-11).
+
+Rate the scene on each of the four ART dimensions using a continuous score from
+0.0 (not at all present) to 1.0 (very strongly present):
+
+- being_away: a sense of being psychologically distant from daily routine and stressors
+  (natural, tranquil, escapist qualities).
+- coherence: how orderly, organised and easy to comprehend the scene is.
+- scope: the sense of a connected, immersive environment large enough to explore (extent).
+- fascination: effortlessly engaging, interesting features that hold attention.
+
+Base your judgement on visible greenery, water, sky openness, visual order, building
+enclosure and the overall atmosphere of the scene.
+
+Respond with ONLY a JSON object and nothing else:
+{"being_away": <float>, "coherence": <float>, "scope": <float>, "fascination": <float>}
