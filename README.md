@@ -74,8 +74,10 @@ Plain `pip install -e ".[dev]"` remains supported, but does not reproduce the ex
 
 ## Quickstart
 
+This runs as-is from a fresh clone (offline, no credentials, no network):
+
 ```python
-from pyrestore import make_pairs, run_task
+from pyrestore import run_task
 
 # Offline demonstration: 12 Barcelona panoramas + precomputed analyzer tables.
 result = run_task(
@@ -86,9 +88,15 @@ result = run_task(
     vlm_scores="data/demo/vlm_scores.csv",
     out_dir="outputs/demo_single",
 )
+```
 
-# Pair derivation with a comparability audit.
-pairs = make_pairs("my_captures.csv")
+Pair derivation follows the same pattern, but needs your own manifest (`my_captures.csv` below is
+illustrative, not a file this repository ships):
+
+```python
+from pyrestore import make_pairs
+
+pairs = make_pairs("my_captures.csv")   # your own capture manifest, not a shipped file
 pairs.to_csv("my_pairs.csv", index=False)
 ```
 
